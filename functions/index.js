@@ -1,14 +1,14 @@
+import functions from 'firebase-functions'
 import express from "express";
-
+import cors from 'cors'
 import { addNewQuote, getMusicQuotes } from "./src/functions.js";
 
 const app = express()
-const PORT = 3030
 app.use(express.json())
+app.use(cors())
+
 
 app.get('/quotes', getMusicQuotes)
 app.post('/quotes', addNewQuote)
 
-app.listen(PORT, () => {
-    console.log(`Listening at port: ${PORT}`)
-})
+export const api = functions.https.onRequest(app)

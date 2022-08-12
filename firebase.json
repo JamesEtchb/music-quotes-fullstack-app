@@ -5,6 +5,18 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "api"
+      }
     ]
+  },
+  "emulators": {
+    "hosting": {
+      "host": "localhost",
+      "port": "5055"
+    }
   }
 }
